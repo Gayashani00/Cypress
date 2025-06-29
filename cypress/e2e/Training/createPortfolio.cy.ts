@@ -42,12 +42,20 @@ it('create portfolio test', function() {
 
   cy.get('[data-cy="Button.Add New Space"]').click()
 
-  const spaceName = `Floor ${timestamp}`;
+  //Step 01- Select a version set
 
-  cy.get('.ClickToEditInput .hbox.field-input-container').type(spaceName);
+  cy.get('.ClickToEditInput .hbox.field-input-container').type('Version 01');
   
   cy.get('.DateTimeInput > .ClickToEditInput > .unfocused').click()
  
   cy.get('[data-cy="Button.Next"]').click()
+
+  // Step 02- Upload PDF
+
+  cy.get('.input').click()
+
+   cy.get('.SelectInput__list .option')
+  .contains('Floor Plan')
+  .click();
 
 })

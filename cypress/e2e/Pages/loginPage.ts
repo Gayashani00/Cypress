@@ -1,7 +1,7 @@
 
 export class LoginPage {
   visit() {
-    cy.visit('/'); // This uses the baseUrl from config
+    cy.visit('/'); // This uses the login URL from config file
   }
 
   enterUsername(username: string) {
