@@ -55,7 +55,7 @@ selectSpaceType(spaceType: string){
         .trigger('mouseup', { force: true });
  
     }
- 
+ //enter distance value
     enterDistance(distance: number){
         cy.get('.PopupWindow') .should('be.visible');
         cy.get('input[type="number"]') .first() .should('be.visible') .type(distance.toString()) .type('{enter}');

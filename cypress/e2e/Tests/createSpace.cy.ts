@@ -39,11 +39,12 @@ describe('Create Space Tests', () => {
     //Step 03 - Review Space names
     spacePage.clickNextButtonStep03();
 
+    //Step 04 - Set Scale
     spacePage.setSpaceScales();
     spacePage.enterDistance(36);
-
     spacePage.clickNextButtonStep04();
 
+    //Step 05 - Create Space
     spacePage.clickCreateButtonStep05();
 
   });
