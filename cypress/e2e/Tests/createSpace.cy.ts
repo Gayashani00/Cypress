@@ -39,8 +39,12 @@ describe('Create Space Tests', () => {
     //Step 03 - Review Space names
     spacePage.clickNextButtonStep03();
 
-  
-    //Assertion (if visible after upload step)
+    spacePage.setSpaceScales();
+    spacePage.enterDistance(36);
+
+    spacePage.clickNextButtonStep04();
+
+    spacePage.clickCreateButtonStep05();
 
   });
 });
