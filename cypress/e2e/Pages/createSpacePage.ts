@@ -40,6 +40,11 @@ selectSpaceType(spaceType: string){
      // Click 'Next' button in Step 03
   clickNextButtonStep03() {
     cy.get('[data-cy="Button.Next"]').should('be.visible').click();
-  } 
+  }
+  
+  //Set scale
+  setScale(){
+    
+  }
   }
 
