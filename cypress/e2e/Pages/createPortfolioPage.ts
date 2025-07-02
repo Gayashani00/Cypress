@@ -18,7 +18,8 @@ export class PortfolioPage {
   private clickCreatePortfolio() {
     cy.get('.sidePanelButtons > [data-cy="Button.Create"]').click();
   }
-
+  
+  //search created portfolio from the grid
   private searchCreatedPortfolio(portfolioName: string){
     cy.get('.filtersAndSearch > .SearchField > input').click().clear().type(portfolioName);
     cy.contains(portfolioName).should('be.visible');
