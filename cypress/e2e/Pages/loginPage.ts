@@ -4,15 +4,15 @@ export class LoginPage {
     cy.visit('/'); // This uses the login URL from config file
   }
 
-  enterUsername(username: string) {
+  private enterUsername(username: string) {
     cy.get('#userName').type(username);
   }
 
-  enterPassword(password: string) {
+  private enterPassword(password: string) {
     cy.get('#pwInput').type(password);
   }
 
-  clickLogin() {
+  private clickLogin() {
     cy.get('.primary').click();
   }
 
