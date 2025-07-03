@@ -6,6 +6,5 @@ describe('Login Tests', () => {
   //Login Test script
   it('login', () => {
     loginPage.login('gayashani.divyanjalee@xyicon.com', 'Gaya@2493802');
-    
   });
 });
