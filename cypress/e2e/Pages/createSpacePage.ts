@@ -1,26 +1,22 @@
+
 export class CreateSpacePage {
   // Click 'Add New Space' button
-  clickAddNewSpace() {
+  private clickAddNewSpace() {
     cy.get('[data-cy="Button.Add New Space"]').click();
   }
 
   // Enter version set name
-  enterVersionSetName(versionName: string) {
+  private enterVersionSetName(versionName: string) {
     cy.get('.ClickToEditInput .hbox.field-input-container').type(`${versionName}{enter}`);
   }
 
-  // // Select date (click on date picker)
-  // clickDatePicker() {
-  //   cy.get('.DateTimeInput > .ClickToEditInput > .unfocused').click();
-  // }
-
   // Click 'Next' button Step 01
-  clickNextButtonStep01() {
+  private clickNextButtonStep01() {
     cy.get('[data-cy="Button.Next"]').should('be.visible').click();
   }
 
   // Upload PDF
-selectSpaceType(spaceType: string){
+  private selectSpaceType(spaceType: string){
         cy.contains('h3', 'Space Type').should('be.visible');
         cy.get('.SelectInput > .input').click();
         cy.get('.SelectInput__list .option').contains(spaceType).should('be.visible').click();
@@ -28,22 +24,22 @@ selectSpaceType(spaceType: string){
 
 
   //Add a new PDF
-  addNewPDF(){
+  private addNewPDF(){
     cy.get('.FileDropper > input').selectFile('cypress/fixtures/ArdenOfficeFloorPlan.pdf', {force: true});
     }
 
    // Click 'Next' button in Step 02
-  clickNextButtonStep02() {
+  private clickNextButtonStep02() {
     cy.get('[data-cy="Button.Next"]').should('be.visible').click();
   } 
 
      // Click 'Next' button in Step 03
-  clickNextButtonStep03() {
+  private clickNextButtonStep03() {
     cy.get('[data-cy="Button.Next"]').should('be.visible').click();
   }
   
   //Set scale
-  setSpaceScales(){
+  private setSpaceScales(){
         cy.get('[title="Set Scale"]') .should('be.visible') .click();
         cy.get('#canvas-div').should('be.visible');
         cy.wait(1000);
@@ -55,25 +51,40 @@ selectSpaceType(spaceType: string){
         .trigger('mouseup', { force: true });
  
     }
- //enter distance value
-    enterDistance(distance: number){
+  //enter distance value
+  private enterDistance(distance: number){
         cy.get('.PopupWindow') .should('be.visible');
         cy.get('input[type="number"]') .first() .should('be.visible') .type(distance.toString()) .type('{enter}');
     }
 
     // Click 'Next' button in Step 04
-  clickNextButtonStep04() {
+  private clickNextButtonStep04() {
     cy.get('[data-cy="Button.Next"]').should('be.visible').click();
   } 
 
   // Click 'Create' button in Step 05
-  clickCreateButtonStep05() {
+  private clickCreateButtonStep05() {
     cy.get('.StepLabel > [data-cy="Button.Create"]').should('be.visible').click();
 
     //verify the success notification is displays
     cy.contains('h3','Success').should('be.visible')
   }
 
+  createSpace(versionName: string, spaceType: string, distance: number) {
+    this.clickAddNewSpace();
+    this.enterVersionSetName(versionName);
+    this.clickNextButtonStep01();
+    this.selectSpaceType(spaceType);
+    this.addNewPDF();
+    this.clickNextButtonStep02();
+    this.clickNextButtonStep03();
+    this.setSpaceScales();
+    this.enterDistance(distance);
+    this.clickNextButtonStep04();
+    this.clickCreateButtonStep05();
+  }
+
   
   }
+
 
