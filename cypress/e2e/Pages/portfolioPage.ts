@@ -25,6 +25,15 @@ export class PortfolioPage {
     cy.contains(portfolioName).should('be.visible');
   }
 
+  private deleteCreatedPortfolio(){
+    cy.get('[data-cy="Button.Delete"]').click();
+    cy.get('.PopupWindow > input').type('1');
+    cy.get('[data-cy="OkButton"]').click();
+  }
+
+  private verifyDeletedPortfolio(){
+    cy.contains('div', 'No results').should('be.visible');
+  }
 
 createPortfolio(portfolioName: string, category: string) {
     this.clickCreateButton();
@@ -34,4 +43,10 @@ createPortfolio(portfolioName: string, category: string) {
     this.clickCreatePortfolio();
     this.searchCreatedPortfolio(portfolioName);
   }
+
+  deletePortfolio(){
+    this.deleteCreatedPortfolio();
+    this.verifyDeletedPortfolio();
+  }
+  
 }

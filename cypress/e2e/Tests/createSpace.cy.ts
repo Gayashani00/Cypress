@@ -1,5 +1,5 @@
 import { LoginPage } from '../Pages/loginPage';
-import { PortfolioPage } from '../Pages/createPortfolioPage';
+import { PortfolioPage } from '../Pages/portfolioPage';
 import { CreateSpacePage } from '../Pages/createSpacePage';
 
 describe('Create Space Tests', () => {

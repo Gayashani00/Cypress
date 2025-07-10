@@ -1,5 +1,5 @@
 import { LoginPage } from '../Pages/loginPage';
-import { PortfolioPage } from '../Pages/createPortfolioPage';
+import { PortfolioPage } from '../Pages/portfolioPage';
 
 describe('Create Portfolio Tests', () => {
   const loginPage = new LoginPage();
@@ -10,7 +10,8 @@ describe('Create Portfolio Tests', () => {
 
     const timestamp = new Date();
     const portfolioName = `Cypress Automation ${timestamp}`;
-    portfolioPage.createPortfolio(portfolioName,'Office')
+    portfolioPage.createPortfolio(portfolioName,'Office');
+    portfolioPage.deletePortfolio();
   
   });
 
