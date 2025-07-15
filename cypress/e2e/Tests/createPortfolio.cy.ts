@@ -2,6 +2,7 @@ import { LoginPage } from '../Pages/loginPage';
 import { PortfolioPage } from '../Pages/portfolioPage';
 
 describe('Create Portfolio Tests', () => {
+  
   const loginPage = new LoginPage();
   const portfolioPage = new PortfolioPage();
 

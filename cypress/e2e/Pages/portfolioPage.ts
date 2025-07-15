@@ -35,6 +35,7 @@ export class PortfolioPage {
     cy.contains('div', 'No results').should('be.visible');
   }
 
+
 createPortfolio(portfolioName: string, category: string) {
     this.clickCreateButton();
     this.enterPortfolioName(portfolioName);
@@ -44,9 +45,23 @@ createPortfolio(portfolioName: string, category: string) {
     this.searchCreatedPortfolio(portfolioName);
   }
 
+  searchPortfolio(portfolioName: string){
+    this.searchCreatedPortfolio(portfolioName);
+  }
+
   deletePortfolio(){
     this.deleteCreatedPortfolio();
     this.verifyDeletedPortfolio();
   }
+
+  
+selectFirstRowCheckbox() {
+
+  //unchcek the selected portfolio in the Grid
+  cy.get('.head').find('input[type="checkbox"]').uncheck({ force: true });
+
+ //select the deleting portfolio from the grid
+  cy.get('.tr').first().find('input[type="checkbox"]').check({ force: true });
+}
   
 }
